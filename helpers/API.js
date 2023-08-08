@@ -32,7 +32,7 @@ export async function getPostComments(postId) {
 export async function createPostComment(postId, comment) {
     try {
         const response = await axios.post(`http://localhost:3000/posts/${postId}/comments`, comment);
-        return response.data;
+        return response;
     } catch (error) {
         return error.response;
     }
