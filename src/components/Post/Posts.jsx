@@ -15,15 +15,14 @@ function Posts() {
         fetchPosts();
     }, []);
 
-    if (!posts) return <p>Loading...</p>;
+    if (!posts) return <div className="loading">Loading...</div>;
 
     return (
-        <div>
+        <div className="posts">
             {posts.length === 0 && <p>No posts found</p>}
             {posts.map((post) => (
-                <Link to={`/blog/posts/${post._id}`} key={post._id}>
-                    <div>{post.title}</div>
-                    <div>{post.body}</div>
+                <Link className="single-post" to={`/blog/posts/${post._id}`} key={post._id}>
+                    <h2 className="single-post-title">{post.title}</h2>
                 </Link>
             ))}
         </div>
