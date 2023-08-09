@@ -1,8 +1,14 @@
 import axios from "axios";
 
+const API_URL = "http://localhost:3000/";
+
+const api = axios.create({
+    baseURL: API_URL,
+});
+
 export async function getPosts() {
     try {
-        const response = await axios.get("http://localhost:3000/posts/public");
+        const response = await api.get("posts/public");
 
         return response;
     } catch (error) {
@@ -12,7 +18,7 @@ export async function getPosts() {
 
 export async function getPost(id) {
     try {
-        const response = await axios.get(`http://localhost:3000/posts/${id}`);
+        const response = await api.get(`posts/public/${id}`);
 
         return response;
     } catch (error) {
@@ -22,7 +28,8 @@ export async function getPost(id) {
 
 export async function getPostComments(postId) {
     try {
-        const response = await axios.get(`http://localhost:3000/posts/${postId}/comments`);
+        const response = await api.get(`posts/${postId}/comments`);
+
         return response;
     } catch (error) {
         return error.response;
@@ -31,8 +38,9 @@ export async function getPostComments(postId) {
 
 export async function createPostComment(postId, comment) {
     try {
-        const response = await axios.post(`http://localhost:3000/posts/${postId}/comments`, comment);
-        return response;
+        const response = await api.post(`posts/${postId}/comments`, comment);
+
+        return response.data;
     } catch (error) {
         return error.response;
     }
