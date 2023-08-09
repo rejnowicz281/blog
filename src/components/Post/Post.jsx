@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { createPostComment, getPost, getPostComments } from "../../../helpers/API";
+import { formatDate } from "../../../helpers/utils";
 import CommentForm from "./CommentForm";
 
 function Post() {
@@ -45,6 +46,7 @@ function Post() {
                 Back to Posts
             </Link>
             <h2 className="post-title">{post.title}</h2>
+            <div className="post-createdAt">{formatDate(post.createdAt)}</div>
             <hr />
             <div className="post-body">{post.body}</div>
             <hr />
@@ -62,6 +64,7 @@ function Post() {
                 {comments.map((comment) => (
                     <div className="comment" key={comment._id}>
                         <div className="comment-author">{comment.author}</div>
+                        <div className="comment-createdAt">{formatDate(comment.createdAt)}</div>
                         <div className="comment-body">{comment.body}</div>
                     </div>
                 ))}
