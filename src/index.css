@@ -28,12 +28,12 @@ body {
     }
 }
 
-.posts {
-    margin: 100px;
-}
-
 h2 {
     margin: 0;
+}
+
+.posts {
+    margin: 100px;
 }
 
 .single-post {
@@ -57,6 +57,7 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
+    word-break: break-word;
 }
 
 .posts-link {
@@ -66,6 +67,11 @@ h2 {
 .post-title {
     margin-top: 40px;
     margin-bottom: 30px;
+}
+
+.post-createdAt {
+    font-size: 14px;
+    margin-bottom: 20px;
 }
 
 .post-body {
@@ -82,15 +88,21 @@ h2 {
     word-break: break-word;
 }
 
-.comment-body {
-    margin-top: 5px;
-}
-
 .comment-author {
     font-weight: bold;
     font-size: 16px;
     text-decoration: underline;
     text-underline-offset: 4px;
+    margin-bottom: 5px;
+}
+
+.comment-createdAt {
+    font-size: 12px;
+}
+
+.comment-body {
+    margin-top: 5px;
+    font-size: 18px;
 }
 
 textarea,
