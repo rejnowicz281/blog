@@ -40,7 +40,7 @@ export async function createPostComment(postId, comment) {
     try {
         const response = await api.post(`posts/${postId}/comments`, comment);
 
-        return response.data;
+        return response;
     } catch (error) {
         return error.response;
     }
